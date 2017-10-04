@@ -26,8 +26,8 @@ public class Data {
 	private Data initialize(){
 		//Initialize rooms
 		Room room1 = new Room("R1", 25);
-		Room room2 = new Room("R1", 45);
-		Room room3 = new Room("R1", 35);
+		Room room2 = new Room("R2", 45);
+		Room room3 = new Room("R3", 35);
 		rooms = new ArrayList<Room>(Arrays.asList(room1, room2, room3));
 		
 		//Initialize meeting times

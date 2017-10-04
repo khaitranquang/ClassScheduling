@@ -35,9 +35,5 @@ public class Course {
 	public String toString(){	//toString() return name of Course
 		return name;
 	}
-	
-	
-	
-	
-	
+
 }
