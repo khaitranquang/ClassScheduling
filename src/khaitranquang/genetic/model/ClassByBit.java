@@ -64,6 +64,19 @@ public class ClassByBit {
 		return data;
 	}
 	
+	public void setRoomBit(String roomBit) {
+		this.roomBit = roomBit;
+	}
+	public void setCourseBit(String courseBit) {
+		this.courseBit = courseBit;
+	}
+	public void setInstructorBit(String instructorBit) {
+		this.instructorBit = instructorBit;
+	}
+	public void setMtBit(String mtBit) {
+		this.mtBit = mtBit;
+	}
+
 	@Override
 	public String toString() {
 		return roomBit + courseBit + instructorBit + mtBit;

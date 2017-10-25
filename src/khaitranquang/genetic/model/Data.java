@@ -40,18 +40,18 @@ public class Data {
 		
 		//Initialize Courses
 		Course course0 = new Course("IT0" , "Tri tue nhan tao", new ArrayList<Instructor>(Arrays.asList(instructor0, instructor2)), 25);
-		Course course1 = new Course("MA0" , "Giai tich I"     , new ArrayList<Instructor>(Arrays.asList(instructor0, instructor1,instructor2)), 35);
-		Course course2 = new Course("IT1" , "Co so du lieu"   , new ArrayList<Instructor>(Arrays.asList(instructor0, instructor1)), 25);
-		Course course3 = new Course("MA1" , "Dai so"          , new ArrayList<Instructor>(Arrays.asList(instructor2, instructor3)), 30);
-		Course course4 = new Course("MA2" , "Toan roi rac"    , new ArrayList<Instructor>(Arrays.asList(instructor3)), 35);
-		Course course5 = new Course("PHY0", "Nhiet hoc"       , new ArrayList<Instructor>(Arrays.asList(instructor0, instructor2)), 45);
-		Course course6 = new Course("PHY1", "Quang hoc"       , new ArrayList<Instructor>(Arrays.asList(instructor1, instructor3)), 45);
+		Course course1 = new Course("MA0" , "Giai tich I     ", new ArrayList<Instructor>(Arrays.asList(instructor0, instructor1,instructor2)), 35);
+		Course course2 = new Course("IT1" , "Co so du lieu   ", new ArrayList<Instructor>(Arrays.asList(instructor0, instructor1)), 25);
+		Course course3 = new Course("MA1" , "Dai so          ", new ArrayList<Instructor>(Arrays.asList(instructor2, instructor3)), 30);
+		Course course4 = new Course("MA2" , "Toan roi rac    ", new ArrayList<Instructor>(Arrays.asList(instructor3)), 35);
+		Course course5 = new Course("PH0" , "Nhiet hoc       ", new ArrayList<Instructor>(Arrays.asList(instructor0, instructor2)), 45);
+		Course course6 = new Course("PH1" , "Quang hoc       ", new ArrayList<Instructor>(Arrays.asList(instructor1, instructor3)), 45);
 		listCourse = new ArrayList<Course>(Arrays.asList(course0, course1, course2, course3, course4, course5, course6));
 		
 		//Initialize Department
-		Department dept0 = new Department("IT"  , new ArrayList<Course>(Arrays.asList(course0, course2)));
-		Department dept1 = new Department("MA"  , new ArrayList<Course>(Arrays.asList(course1, course3, course4)));
-		Department dept2 = new Department("PHY" , new ArrayList<Course>(Arrays.asList(course5, course6)));
+		Department dept0 = new Department("IT" , new ArrayList<Course>(Arrays.asList(course0, course2)));
+		Department dept1 = new Department("MA" , new ArrayList<Course>(Arrays.asList(course1, course3, course4)));
+		Department dept2 = new Department("PH" , new ArrayList<Course>(Arrays.asList(course5, course6)));
 		listDept = new ArrayList<Department>(Arrays.asList(dept0, dept1, dept2));
 		
 		//Number of classes

@@ -14,5 +14,9 @@ public class Instructor {
 	}
 	public String getInstructorName() {
 		return instructorName;
-	}	
+	}
+	@Override
+	public String toString() {
+		return instructorName;
+	}
 }

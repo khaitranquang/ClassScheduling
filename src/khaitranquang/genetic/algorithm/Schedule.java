@@ -57,20 +57,35 @@ public class Schedule {
 	
 	private double calculteFitness() {
 		numbOfConflicts = 0;
-		for(int i = 0; i < listClass.size(); i++) {
-			int indexRoom = Integer.parseInt(listClass.get(i).getRoomBit(), 2);
+//		for(int i = 0; i < listClass.size(); i++) {
+//			int indexRoom = Integer.parseInt(listClass.get(i).getRoomBit(), 2);
+//			int seatingCapacity = data.getListRoom().get(indexRoom).getSeatingCapacity();
+//			int indexCourse = Integer.parseInt(listClass.get(i).getCourseBit(), 2);
+//			int maxNumbOfStudents = data.getListCourse().get(indexCourse).getMaxNumbOfStudents();
+//			if (seatingCapacity > maxNumbOfStudents) numbOfConflicts++;
+//			
+//			for (int j = i+1; j < listClass.size(); j++) {
+//				if (listClass.get(i).getMtBit().equals(listClass.get(j).getMtBit())) {
+//					if (listClass.get(i).getRoomBit().equals(listClass.get(j).getRoomBit())) numbOfConflicts++;
+//					if (listClass.get(i).getInstructorBit().equals(listClass.get(j).getInstructorBit())) numbOfConflicts++;
+//				}
+//			}
+//		}
+		listClass.forEach(x ->{
+			int indexRoom = Integer.parseInt(x.getRoomBit(), 2);
 			int seatingCapacity = data.getListRoom().get(indexRoom).getSeatingCapacity();
-			int indexCourse = Integer.parseInt(listClass.get(i).getCourseBit(), 2);
+			int indexCourse = Integer.parseInt(x.getCourseBit(), 2);
 			int maxNumbOfStudents = data.getListCourse().get(indexCourse).getMaxNumbOfStudents();
 			if (seatingCapacity > maxNumbOfStudents) numbOfConflicts++;
 			
-			for (int j = i+1; j < listClass.size(); j++) {
-				if (listClass.get(i).getMtBit().equals(listClass.get(j).getMtBit())) {
-					if (listClass.get(i).getRoomBit().equals(listClass.get(j).getRoomBit())) numbOfConflicts++;
-					if (listClass.get(i).getInstructorBit().equals(listClass.get(j).getInstructorBit())) numbOfConflicts++;
+			listClass.stream().filter(y -> listClass.indexOf(y) >= listClass.indexOf(x)).forEach(y -> {
+				if (x.getCourseBit().equals(y.getCourseBit())) numbOfConflicts++;
+				else if (x.getMtBit().equals(y.getMtBit()) && (!x.getCourseBit().equals(y.getCourseBit()))) {
+					if(x.getRoomBit().equals(y.getRoomBit())) numbOfConflicts++;
+					if(x.getInstructorBit().equals(y.getInstructorBit())) numbOfConflicts++;
 				}
-			}
-		}
+			});
+		});
 		
 		return 1/ (double) (numbOfConflicts + 1);
 	}
