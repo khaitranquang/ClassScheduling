@@ -2,7 +2,9 @@ package khaitranquang.test;
 
 import java.util.ArrayList;
 
+import khaitranquang.genetic.algorithm.Population;
 import khaitranquang.genetic.algorithm.Schedule;
+import khaitranquang.genetic.model.ClassByBit;
 import khaitranquang.genetic.model.Data;
 
 public class DemoSchedule {
@@ -12,21 +14,50 @@ public class DemoSchedule {
 		
 		
 		
-		Schedule schedule = new Schedule(data).initialize();
-		//schedule.setData(data);
-		//khaitranquang.genetic.Schedule schedule2 = new khaitranquang.genetic.Schedule(new khaitranquang.genetic.Data()).initialize();
-		System.out.println("Conflict " + schedule.getNumbOfConflicts());
-		System.out.println("Fitness " + schedule.getFitness());
-		
-		
-//		ArrayList<Integer> arr = new ArrayList<Integer>();
-//		arr.add(0);
-//		arr.add(1);
-//		arr.add(2);
-//		arr.add(3);
-//		arr.add(4);
-//		arr.add(5);
+//		Schedule schedule = new Schedule(data).initialize();
+//		System.out.println(schedule.toString());
+//		String[] listCouserOfTemplate = new String[schedule.getListClass().size()];
+//		for (int i = 0; i < schedule.getListClass().size(); i++) {
+//			listCouserOfTemplate[i] = schedule.getListClass().get(i).getCourseBit();
+//		}
+//		for (int i =0; i < listCouserOfTemplate.length; i++) {
+//			System.out.println(listCouserOfTemplate[i]);
+//		}
 //		
-//		arr.get
+//		ArrayList<Schedule> listSchedule = new ArrayList<Schedule>();
+//
+//		Schedule copySchedule = new Schedule(data).initialize();
+//		System.out.println(copySchedule.toString());
+//		for (int i = 0; i < copySchedule.getListClass().size(); i++) {
+//			copySchedule.getListClass().get(i).setCourseBit(listCouserOfTemplate[i]);
+//		}
+//		System.out.println(copySchedule.toString());
+//	
+//		
+//		for (int i = 0; i < 4; i++) {
+//			Schedule chromosome = new Schedule(data).initialize();
+//			for (int j = 0; j < chromosome.getListClass().size(); j++) {
+//				chromosome.getListClass().get(j).setCourseBit(listCouserOfTemplate[j]);
+//			}
+//			//System.out.println(chromosome.toString());
+//			listSchedule.add(chromosome);
+//		}
+//		System.out.println("-----------------------");
+//		for (int i = 0; i < 4; i++) {
+//			System.out.println(listSchedule.get(i).toString());
+//		}
+//		
+		
+		System.out.println("-----------------------");
+		Population population = new Population(4, data);
+		for (int i = 0; i < 4; i++) {
+			System.out.println(population.getListSchedule().get(i).toString());
+		}
+		
 	}
+	
+//	public static Schedule copyCourse(Schedule chromosome, String[] listCouserOfTemplate) {
+//		
+//		return chromosome;
+//	}
 }

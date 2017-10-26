@@ -101,6 +101,7 @@ public class GeneticAlgorithm {
 		}
 		return mutateSchedule;
 	}
+	
 //	public Schedule mutateSchedule (Schedule mutateSchedule) {
 //		int numbOfClass = mutateSchedule.getListClass().size();
 //		/* Get a random class */
@@ -109,22 +110,21 @@ public class GeneticAlgorithm {
 //		/* Get random property from randomClass (having 4 properties are: Room, Course, Instructor, Meeting Time )*/
 //		int randomIndexProperty = (int) (Math.random() * 4);
 //		String mutateStr = "";
-//		if (randomIndexProperty == 0) mutateStr = randomClass.getRoomBit();
-//		else if (randomIndexProperty == 1) mutateStr = randomClass.getCourseBit();
+//		if (randomIndexProperty == 0) return mutateSchedule(mutateSchedule);
+//		else if (randomIndexProperty == 1) mutateStr = randomClass.getRoomBit();
 //		else if (randomIndexProperty == 2) mutateStr = randomClass.getInstructorBit();
 //		else if (randomIndexProperty == 3) mutateStr = randomClass.getMtBit();
 //		/* Inverting one randomly chosen bit from mutateStr */
 //		String newStr = changeOneBitProperty(randomIndexProperty, mutateStr, data);
 //		/* Re-Install class */
-//		if (randomIndexProperty == 0) randomClass.setRoomBit(newStr);
-//		else if (randomIndexProperty == 1) randomClass.setCourseBit(newStr);
+//		if (randomIndexProperty == 1) randomClass.setRoomBit(newStr);
 //		else if (randomIndexProperty == 2) randomClass.setInstructorBit(newStr);
 //		else if (randomIndexProperty == 3) randomClass.setMtBit(newStr);
 //		
 //		return mutateSchedule;
 //	}
 	
-	/* Change one bit from a random property */
+	/* Change one bit from a random property - Do not change Course */
 	private String changeOneBitProperty(int indexProperty, String mutateStr, Data data) {
 		String newStr = "";
 		int randomBit = (int) (Math.random() * mutateStr.length());
@@ -132,13 +132,9 @@ public class GeneticAlgorithm {
 		else if (mutateStr.charAt(randomBit) == '1') newStr = mutateStr.substring(0, randomBit) + "0" + mutateStr.substring(randomBit + 1);
 		
 		int newIndexOfProperty = Integer.parseInt(newStr, 2);
-		if (indexProperty == 0) {
+		if (indexProperty == 1) {
 			int sizeOfListRoom = data.getListRoom().size();
 			if (newIndexOfProperty >= sizeOfListRoom) return changeOneBitProperty(indexProperty, mutateStr, data);
-		}
-		else if (indexProperty == 1) {
-			int sizeOfListCourse = data.getListCourse().size();
-			if (newIndexOfProperty >= sizeOfListCourse) return changeOneBitProperty(indexProperty, mutateStr, data);
 		}
 		else if (indexProperty == 2) {
 			int sizeOfListInstructor = data.getListInstructor().size();

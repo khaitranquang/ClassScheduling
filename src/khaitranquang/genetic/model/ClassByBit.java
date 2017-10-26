@@ -8,6 +8,7 @@ package khaitranquang.genetic.model;
  * 		2 bits - index of meeting time in ArrayList<MeetingTime> - Data ( because data has 4  meeting times)
  */
 public class ClassByBit {
+	private String idBit;
 	private String roomBit;
 	private String courseBit;
 	private String instructorBit;
@@ -15,25 +16,31 @@ public class ClassByBit {
 	
 	private Data data;
 	
-	public ClassByBit(Data data) {
-		initialize(data);
+//	public ClassByBit(Data data) {
+//		initialize(data);
+//	}
+//	
+//	// Random all strings
+//	private ClassByBit initialize(Data data) {
+//		this.data = data;
+//		int sizeListRoom       = data.getListRoom().size();
+//		int sizeListCourse     = data.getListCourse().size();
+//		int sizeListInstructor = data.getListInstructor().size();
+//		int sizeListMT         = data.getListMT().size();
+//		
+//		this.courseBit = toBinaryStr((int)(sizeListCourse * Math.random()), 3);
+//		this.roomBit = toBinaryStr((int) (sizeListRoom * Math.random()), 2);
+//		
+//		this.instructorBit = toBinaryStr((int)(sizeListInstructor * Math.random()), 2);
+//		this.mtBit = toBinaryStr((int)(sizeListMT * Math.random()), 2);
+//		
+//		return this;
+//	}
+	public ClassByBit(String idBit, String courseBit){
+		this.idBit = idBit;
+		this.courseBit = courseBit;
 	}
 	
-	// Random all strings
-	private ClassByBit initialize(Data data) {
-		this.data = data;
-		int sizeListRoom       = data.getListRoom().size();
-		int sizeListCourse     = data.getListCourse().size();
-		int sizeListInstructor = data.getListInstructor().size();
-		int sizeListMT         = data.getListMT().size();
-		
-		this.roomBit = toBinaryStr((int) (sizeListRoom * Math.random()), 2);
-		this.courseBit = toBinaryStr((int)(sizeListCourse * Math.random()), 3);
-		this.instructorBit = toBinaryStr((int)(sizeListInstructor * Math.random()), 2);
-		this.mtBit = toBinaryStr((int)(sizeListMT * Math.random()), 2);
-		
-		return this;
-	}
 	
 	// to Binary String
 	public String toBinaryStr(int n, int length) {
@@ -48,6 +55,9 @@ public class ClassByBit {
 		return binaryStr;
 	}
 
+	public String getIdBit() {
+		return idBit;
+	}
 	public String getRoomBit() {
 		return roomBit;
 	}
@@ -67,9 +77,9 @@ public class ClassByBit {
 	public void setRoomBit(String roomBit) {
 		this.roomBit = roomBit;
 	}
-	public void setCourseBit(String courseBit) {
-		this.courseBit = courseBit;
-	}
+//	public void setCourseBit(String courseBit) {
+//		this.courseBit = courseBit;
+//	}
 	public void setInstructorBit(String instructorBit) {
 		this.instructorBit = instructorBit;
 	}
@@ -79,6 +89,6 @@ public class ClassByBit {
 
 	@Override
 	public String toString() {
-		return roomBit + courseBit + instructorBit + mtBit;
+		return courseBit + roomBit + instructorBit + mtBit;
 	}
 }
