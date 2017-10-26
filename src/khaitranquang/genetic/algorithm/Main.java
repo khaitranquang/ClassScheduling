@@ -37,7 +37,7 @@ public class Main {
 							   String.format("%.5f", schedule.getFitness()) + "  |   " + schedule.getNumbOfConflicts());
 		});
 		
-		System.out.println(population.getListSchedule().get(0).toString());
+		
 		
 		main.printScheduleAsTable(population.getListSchedule().get(0), generationNumber);
 		

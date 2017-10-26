@@ -115,7 +115,7 @@ public class Schedule {
 			int seatingCapacity = data.getListRoom().get(indexRoom).getSeatingCapacity();
 			int indexCourse = Integer.parseInt(x.getCourseBit(), 2);
 			int maxNumbOfStudents = data.getListCourse().get(indexCourse).getMaxNumbOfStudents();
-			if (seatingCapacity > maxNumbOfStudents) numbOfConflicts++;
+			if (seatingCapacity < maxNumbOfStudents) numbOfConflicts++;
 			
 			listClass.stream().filter(y -> listClass.indexOf(y) >= listClass.indexOf(x)).forEach(y -> {
 				//if (x.getCourseBit().equals(y.getCourseBit())) numbOfConflicts++;

@@ -40,27 +40,27 @@ public class GeneticAlgorithm {
 		return crossoverPopulation;
 	}
 	
-	public Schedule crossoverSchedule(Schedule schedule1, Schedule schedule2) {
-		Schedule crossoverSchedule = new Schedule(data).initialize();
-		for (int i = 0; i < crossoverSchedule.getListClass().size(); i++) {
-			if (Math.random() > 0.5) crossoverSchedule.getListClass().set(i, schedule1.getListClass().get(i));
-			else crossoverSchedule.getListClass().set(i, schedule2.getListClass().get(i));
-		}
-		return crossoverSchedule;
-	}
-	
 //	public Schedule crossoverSchedule(Schedule schedule1, Schedule schedule2) {
 //		Schedule crossoverSchedule = new Schedule(data).initialize();
-//		int randomPoint = (int) (Math.random() * (schedule1.getListClass().size() - 1));
-//		for (int i = 0; i <= randomPoint; i++) {
-//			crossoverSchedule.getListClass().set(i, schedule1.getListClass().get(i));
+//		for (int i = 0; i < crossoverSchedule.getListClass().size(); i++) {
+//			if (Math.random() > 0.5) crossoverSchedule.getListClass().set(i, schedule1.getListClass().get(i));
+//			else crossoverSchedule.getListClass().set(i, schedule2.getListClass().get(i));
 //		}
-//		for (int i = randomPoint + 1; i < crossoverSchedule.getListClass().size(); i++) {
-//			crossoverSchedule.getListClass().set(i, schedule2.getListClass().get(i));
-//		}
-//		
 //		return crossoverSchedule;
 //	}
+	
+	public Schedule crossoverSchedule(Schedule schedule1, Schedule schedule2) {
+		Schedule crossoverSchedule = new Schedule(data).initialize();
+		int randomPoint = (int) (Math.random() * (schedule1.getListClass().size() - 1));
+		for (int i = 0; i <= randomPoint; i++) {
+			crossoverSchedule.getListClass().set(i, schedule1.getListClass().get(i));
+		}
+		for (int i = randomPoint + 1; i < crossoverSchedule.getListClass().size(); i++) {
+			crossoverSchedule.getListClass().set(i, schedule2.getListClass().get(i));
+		}
+		
+		return crossoverSchedule;
+	}
 	
 	Population selectTournamentPopulation (Population population) {
 		Population tournamentPopulation = new Population(Main.TOURNAMENT_SELECTION_SIZE, data);
@@ -82,47 +82,47 @@ public class GeneticAlgorithm {
 		}
 		/* Mutating */
 		for (int i = Main.NUMB_OF_ELITE_SCHUDELES; i < population.getListSchedule().size(); i++) {
-//			if (Main.MUTATION_RATE > Math.random()) {
-//				listSchedule.set(i, mutateSchedule(population.getListSchedule().get(i)));
-//			}
+			if (Main.MUTATION_RATE > Math.random()) {
+				listSchedule.set(i, mutateSchedule(population.getListSchedule().get(i)));
+			}
 //			else {
 //				listSchedule.set(i, population.getListSchedule().get(i));
 //			}
-			listSchedule.set(i, mutateSchedule(population.getListSchedule().get(i)));
+			//listSchedule.set(i, mutateSchedule(population.getListSchedule().get(i)));
 		}
 		return mutatePopulation;
 	}
 	
-	Schedule mutateSchedule (Schedule mutateSchedule) {
-		Schedule schedule = new Schedule(data).initialize();
-		
-		for (int i = 0; i < mutateSchedule.getListClass().size(); i++) {
-			if (Main.MUTATION_RATE > Math.random()) mutateSchedule.getListClass().set(i, schedule.getListClass().get(i));
-		}
-		return mutateSchedule;
-	}
-	
-//	public Schedule mutateSchedule (Schedule mutateSchedule) {
-//		int numbOfClass = mutateSchedule.getListClass().size();
-//		/* Get a random class */
-//		int randomIndexClass   = (int) (Math.random() * numbOfClass);
-//		ClassByBit randomClass = mutateSchedule.getListClass().get(randomIndexClass);
-//		/* Get random property from randomClass (having 4 properties are: Room, Course, Instructor, Meeting Time )*/
-//		int randomIndexProperty = (int) (Math.random() * 4);
-//		String mutateStr = "";
-//		if (randomIndexProperty == 0) return mutateSchedule(mutateSchedule);
-//		else if (randomIndexProperty == 1) mutateStr = randomClass.getRoomBit();
-//		else if (randomIndexProperty == 2) mutateStr = randomClass.getInstructorBit();
-//		else if (randomIndexProperty == 3) mutateStr = randomClass.getMtBit();
-//		/* Inverting one randomly chosen bit from mutateStr */
-//		String newStr = changeOneBitProperty(randomIndexProperty, mutateStr, data);
-//		/* Re-Install class */
-//		if (randomIndexProperty == 1) randomClass.setRoomBit(newStr);
-//		else if (randomIndexProperty == 2) randomClass.setInstructorBit(newStr);
-//		else if (randomIndexProperty == 3) randomClass.setMtBit(newStr);
+//	Schedule mutateSchedule (Schedule mutateSchedule) {
+//		Schedule schedule = new Schedule(data).initialize();
 //		
+//		for (int i = 0; i < mutateSchedule.getListClass().size(); i++) {
+//			if (Main.MUTATION_RATE > Math.random()) mutateSchedule.getListClass().set(i, schedule.getListClass().get(i));
+//		}
 //		return mutateSchedule;
 //	}
+	
+	public Schedule mutateSchedule (Schedule mutateSchedule) {
+		int numbOfClass = mutateSchedule.getListClass().size();
+		/* Get a random class */
+		int randomIndexClass   = (int) (Math.random() * numbOfClass);
+		ClassByBit randomClass = mutateSchedule.getListClass().get(randomIndexClass);
+		/* Get random property from randomClass (having 4 properties are: Room, Course, Instructor, Meeting Time )*/
+		int randomIndexProperty = (int) (Math.random() * 4);
+		String mutateStr = "";
+		if (randomIndexProperty == 0) return mutateSchedule(mutateSchedule);
+		else if (randomIndexProperty == 1) mutateStr = randomClass.getRoomBit();
+		else if (randomIndexProperty == 2) mutateStr = randomClass.getInstructorBit();
+		else if (randomIndexProperty == 3) mutateStr = randomClass.getMtBit();
+		/* Inverting one randomly chosen bit from mutateStr */
+		String newStr = changeOneBitProperty(randomIndexProperty, mutateStr, data);
+		/* Re-Install class */
+		if (randomIndexProperty == 1) randomClass.setRoomBit(newStr);
+		else if (randomIndexProperty == 2) randomClass.setInstructorBit(newStr);
+		else if (randomIndexProperty == 3) randomClass.setMtBit(newStr);
+		
+		return mutateSchedule;
+	}
 	
 	/* Change one bit from a random property - Do not change Course */
 	private String changeOneBitProperty(int indexProperty, String mutateStr, Data data) {
