@@ -59,8 +59,7 @@ public class Main {
 			
 			main.printScheduleAsTable(population.getListSchedule().get(0), generationNumber);
 			main.classNumb = 1;
-		}
-//		
+		}	
 	}
 	
 	private void printScheduleAsTable (Schedule schedule, int generation) {
@@ -108,13 +107,6 @@ public class Main {
 		System.out.print("---------------------------------------------------------");
 		System.out.println("------------------------------------------------------");
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	private void printAvailableData() {
 		System.out.println("Available Department ==>");

@@ -2,8 +2,8 @@ package khaitranquang.genetic.model;
 /* 
  * ClassByBit - Describe a period of Student.
  * Define a class by 9 bits
- * 		2 bits - index of room in ArrayList<Room>     - Data ( because data has 3 rooms)
  * 		3 bits - index of course in ArrayList<Course> - Data ( because data has 7 courses)
+ * 		2 bits - index of room in ArrayList<Room>     - Data ( because data has 3 rooms)
  * 		2 bits - index of instructors in ArrayList<Instructor> - Data ( because data has 4 instructors)
  * 		2 bits - index of meeting time in ArrayList<MeetingTime> - Data ( because data has 4  meeting times)
  */
@@ -15,45 +15,25 @@ public class ClassByBit {
 	private String mtBit;
 	
 	private Data data;
-	
-//	public ClassByBit(Data data) {
-//		initialize(data);
-//	}
-//	
-//	// Random all strings
-//	private ClassByBit initialize(Data data) {
-//		this.data = data;
-//		int sizeListRoom       = data.getListRoom().size();
-//		int sizeListCourse     = data.getListCourse().size();
-//		int sizeListInstructor = data.getListInstructor().size();
-//		int sizeListMT         = data.getListMT().size();
-//		
-//		this.courseBit = toBinaryStr((int)(sizeListCourse * Math.random()), 3);
-//		this.roomBit = toBinaryStr((int) (sizeListRoom * Math.random()), 2);
-//		
-//		this.instructorBit = toBinaryStr((int)(sizeListInstructor * Math.random()), 2);
-//		this.mtBit = toBinaryStr((int)(sizeListMT * Math.random()), 2);
-//		
-//		return this;
-//	}
+
 	public ClassByBit(String idBit, String courseBit){
 		this.idBit = idBit;
 		this.courseBit = courseBit;
 	}
 	
 	
-	// to Binary String
-	public String toBinaryStr(int n, int length) {
-		String binaryStr = Integer.toBinaryString(n);
-		if (binaryStr.length() < length) {
-			int sub = length - binaryStr.length();
-			//Add sub bit(s) 0
-			for (int i = 0 ; i < sub; i++) {
-				binaryStr = "0" + binaryStr;
-			}
-		}
-		return binaryStr;
-	}
+//	// to Binary String
+//	public String toBinaryStr(int n, int length) {
+//		String binaryStr = Integer.toBinaryString(n);
+//		if (binaryStr.length() < length) {
+//			int sub = length - binaryStr.length();
+//			//Add sub bit(s) 0
+//			for (int i = 0 ; i < sub; i++) {
+//				binaryStr = "0" + binaryStr;
+//			}
+//		}
+//		return binaryStr;
+//	}
 
 	public String getIdBit() {
 		return idBit;
@@ -77,9 +57,6 @@ public class ClassByBit {
 	public void setRoomBit(String roomBit) {
 		this.roomBit = roomBit;
 	}
-//	public void setCourseBit(String courseBit) {
-//		this.courseBit = courseBit;
-//	}
 	public void setInstructorBit(String instructorBit) {
 		this.instructorBit = instructorBit;
 	}

@@ -85,9 +85,7 @@ public class GeneticAlgorithm {
 			if (Main.MUTATION_RATE > Math.random()) {
 				listSchedule.set(i, mutateSchedule(population.getListSchedule().get(i)));
 			}
-//			else {
-//				listSchedule.set(i, population.getListSchedule().get(i));
-//			}
+			
 			//listSchedule.set(i, mutateSchedule(population.getListSchedule().get(i)));
 		}
 		return mutatePopulation;
@@ -146,18 +144,4 @@ public class GeneticAlgorithm {
 		}
 		return newStr;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

@@ -3,7 +3,6 @@ package khaitranquang.genetic.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
 public class Data {
 	private ArrayList<Room> listRoom;
 	private ArrayList<Course> listCourse;
