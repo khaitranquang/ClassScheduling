@@ -1,15 +1,15 @@
 # ClassScheduling
 Project Artificial Intelligence -  Genetic Algorithm
  Thuật giải di truyền giải bài toán xếp thời khóa biểu
- - Dữ liệu đầu vào: Danh sách phòng học  (Rooms) (3 phòng - Mỗi phòng có 1 sức chứa tối đa)
-                    Danh sách các môn học (Courses) (7 môn - Mỗi môn lại có số sinh viên được đăng kí tối đa)
-                    Danh sách giảng viên (Instructors) (4 giảng viên)
-                    Danh sách các khoảng thời gian (Meeting Times) (4 khoảng thời gian)
+ - Dữ liệu đầu vào: + Danh sách phòng học  (Rooms) (3 phòng - Mỗi phòng có 1 sức chứa tối đa)
+                    + Danh sách các môn học (Courses) (7 môn - Mỗi môn lại có số sinh viên được đăng kí tối đa)
+                    + Danh sách giảng viên (Instructors) (4 giảng viên)
+                    + Danh sách các khoảng thời gian (Meeting Times) (4 khoảng thời gian)
  - Dữ liệu đầu ra: 
-                    Một thời khóa biểu là lịch của 7 môn không vi phạm các ràng buộc như:
-                      Một giáo viên không dạy 2 lớp khác nhau trong cùng khoảng thời gian
-                      Sức chứa của phòng học không nhỏ hơn số sinh viên tối đa
-                      Hai môn khác nhau không học cùng một phòng trong cùng khoảng thời gian
+                    + Một thời khóa biểu là lịch của 7 môn không vi phạm các ràng buộc như:
+                      + Một giáo viên không dạy 2 lớp khác nhau trong cùng khoảng thời gian
+                      + Sức chứa của phòng học không nhỏ hơn số sinh viên tối đa
+                      + Hai môn khác nhau không học cùng một phòng trong cùng khoảng thời gian
  
  - Phương pháp: Thuật giải di truyền (package algorithm) sẽ đc biểu diễn như sau:
      + Chromosome (Là 1 schedule - thời khóa biểu): 63 bit - là lịch của 7 môn
