@@ -20,9 +20,7 @@ Project Artificial Intelligence -  Genetic Algorithm
      + Toán tử lai ghép (Crossover)  lai ghép 2 chromosome tại 1 điểm ngẫu nhiên. Tuy nhiên, điểm này không được chọn
        tùy tiện để tránh tạo ra các giá trị vượt phạm vi biểu diễn.
        Sẽ chọn điểm lai ghép này ở các điểm phân chia 7 bit một
-       Ví dụ:  Có 2 schedule - A, B, ... N là 1 lớp 9 bit - cả chuỗi là 63 bit
-               ABCDEFG
-               HIJKLMN
+       Ví dụ:  Có 2 schedule (ABCDEFG và HIJKLMN) (với A, B, ... N là 1 lớp 9 bit - cả chuỗi là 63 bit)
                thì ta sẽ lai ghép ở các điểm giưã A với B, B với C, hoặc C với D, vv...
      + Toán tử đột biến: Trên chuỗi 63 bit đột biến ngẫu nhiên 1 bit nào đó, chuyển từ 0 -> 1 và ngược lại.
                          Chú ý kiểm tra giá trị đột biến mới có vượt quá phạm vi biểu diễn không.
